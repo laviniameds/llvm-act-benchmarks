@@ -1,6 +1,8 @@
 *
 !/**/
 !*.*
+**.o
+**.d
 **.out
 **.log
 **.data
@@ -20,3 +22,5 @@
 **/bin
 **/.vscode/
 **/.vscode
+**/output/
+**/output
