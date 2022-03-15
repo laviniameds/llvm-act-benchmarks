@@ -243,7 +243,7 @@ bool check_cell(struct Cell *cell) {
 //A simple self-test program that stresses the cell pool a little
 //The basic strategy is to allocate lots of cells and write pre-determined values to
 //the cell arrays. Then we read the values to make sure they haven't been overwritten.
-int main() {
+int main(int argc, char *argv[]) {
   int nCells = 2 * 1000 * 1000; //test with 2 million cells
   const int size_array = 389; //number of statically allocated cells (a prime number)
   struct Cell cells[size_array]; //array of dummy cells, serves as entry points for lists

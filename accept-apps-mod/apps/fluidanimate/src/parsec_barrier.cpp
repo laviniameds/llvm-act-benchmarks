@@ -295,7 +295,7 @@ void *counter_thread(void *arg) {
   return NULL;
 }
 
-int main(int argc, char **argv) {
+int main(int argc, char *argv[]) {
   pthread_t workers[NTHREADS];
   pthread_t buggers[NBUGGERS];
   int worker_tids[NTHREADS];

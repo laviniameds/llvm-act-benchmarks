@@ -1,0 +1,3 @@
+compare-im6.q16: unable to open image `test.data/output/18.rgb_orig.png': Arquivo ou diretório inexistente @ error/blob.c/OpenBlob/2874.
+compare-im6.q16: unable to open image `test.data/output/18_sobel_0.4.png': Arquivo ou diretório inexistente @ error/blob.c/OpenBlob/2874.
+compare-im6.q16: unable to open image `test.data/output/18_sobel_0.4.png': Arquivo ou diretório inexistente @ error/blob.c/OpenBlob/2874.

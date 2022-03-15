@@ -23,12 +23,13 @@ pass;
 if(len(sys.argv) != 3):
 	printUsage()
 
+#origFilename = nnFilename = origLines = nnLines = 0
+
 origFilename 	= sys.argv[1]
 nnFilename		= sys.argv[2]
 
 origLines 		= open(origFilename).readlines()
 nnLines			= open(nnFilename).readlines()
-
 
 missPred = 0
 

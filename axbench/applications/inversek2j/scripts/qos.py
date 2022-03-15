@@ -34,10 +34,8 @@ e = 0.0
 absError = 0.0
 
 for i in range(len(origLines)):
-
 	origLine 	= origLines[i].rstrip()
 	nnLine 		= nnLines[i].rstrip()
-
 
 	origItem1 	= float(origLine.split("\t")[0])
 	origItem2 	= float(origLine.split("\t")[1])
@@ -51,6 +49,8 @@ for i in range(len(origLines)):
  	nominator   = math.sqrt(diff1*diff1 + diff2*diff2)
  	denominator = math.sqrt(origItem1*origItem1 + origItem2*origItem2)
 
+	#print("nom: {0} - den: {1}".format(nominator, denominator))
+
  	if(denominator == 0):
  		e = 1.0
  	elif(math.isnan(nominator) or (math.isnan(denominator))):
@@ -60,7 +60,11 @@ for i in range(len(origLines)):
  	else:
  		e = nominator / denominator
 
- 	absError += e
+	if (nominator == 0):
+ 		absError = 0.0
+	else:
+		absError += e
+	#print("e: {0} - absError: {1}". format(e, absError))	
 pass;
 
 print bcolors.FAIL	+ "*** Error: %1.8f" % (absError/len(origLines)) + bcolors.ENDC

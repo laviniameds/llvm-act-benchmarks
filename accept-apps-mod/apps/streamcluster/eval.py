@@ -28,13 +28,15 @@ def euclidean_dist(a, b):
         total += (x - y) ** 2.0
     return total ** 0.5
 
-def _drop_nans(v, repl=0.0):
+def _drop_nans(v):
     out = []
     for n in v:
+        print("n: {0}", n)
         if math.isnan(n):
-            out.append(repl)
+            out.append(0.0)
         else:
             out.append(n)
+    print("out: {0}", out)
     return out
 
 def score(orig, relaxed):
@@ -46,12 +48,13 @@ def score(orig, relaxed):
             b = _drop_nans(b)
             row.append(euclidean_dist(a, b))
         matrix.append(row)
-
-    total = 0.0
     indices = munkres.Munkres().compute(matrix)
     for i, j in indices:
         a = _drop_nans(orig[i][2])
         b = _drop_nans(relaxed[j][2])
+        print(a)
+        print("\n")
+        print(b)
         dist = euclidean_dist(a, b)
         dist /= len(a) ** 0.5
         total += dist

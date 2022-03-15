@@ -38,7 +38,7 @@ int main(int argc, const char* argv[])
 
 
 
-	float* t1t2xy = (float*)malloc(n * 2 * 2 * sizeof(float));
+	float* t1t2xy = (float*)malloc(n * 4 * sizeof(float));
 
 	if(t1t2xy == NULL)
 	{
@@ -49,7 +49,7 @@ int main(int argc, const char* argv[])
 	srand (time(NULL));
 
 	int curr_index1 = 0;		
-	for(int i = 0 ; i < n * 2 * 2 ; i += 2 * 2)
+	for(int i = 0 ; i < n * 4; i += 4)
 	{
 		float theta1, theta2;
 		inputFileHandler >> theta1 >> theta2;
@@ -60,12 +60,12 @@ int main(int argc, const char* argv[])
 		forwardk2j(t1t2xy[i + 0], t1t2xy[i + 1], t1t2xy + (i + 2), t1t2xy + (i + 3));
 	}
 
-	for(int i = 0 ; i < n * 2 * 2 ; i += 2 * 2)
+	for(int i = 0 ; i < n * 4; i += 4)
 	{
 		inversek2j(t1t2xy[i + 2], t1t2xy[i + 3], t1t2xy + (i + 0), t1t2xy + (i + 1));
 	}
 
-	for(int i = 0 ; i < n * 2 * 2 ; i += 2 * 2)
+	for(int i = 0 ; i < n * 4; i += 4)
 	{
 		outputFileHandler <<  t1t2xy[i+0] << "\t" << t1t2xy[i+1] << "\n";
 	}

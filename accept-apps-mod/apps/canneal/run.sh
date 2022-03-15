@@ -17,11 +17,12 @@ do
 		for r in $rates; do
 			b=${d}/$r/bin
             input=$(<${f})
-	
-			${b}/${benchmark}_$r.out $input > output/${base_d}_${filename}_${r}.txt
+
 			{
-			python ./eval.py output/${base_d}_${filename}_${r}.txt
-			} &> ${benchmark}_${base_d}_${filename}_${r}.log
+			time ./${b}/${benchmark}_$r.out ${input} > output/${benchmark}_${base_d}_${filename}_${r}.txt
+			gprof ./${b}/${benchmark}_$r.out gmon.out
+			python eval.py output/${benchmark}_${base_d}_${filename}_0.0.txt output/${benchmark}_${base_d}_${filename}_${r}.txt
+			} &>> ${benchmark}_${base_d}_${filename}_${r}.log
 		done
 	done
 done	
